@@ -21,6 +21,7 @@
 #endif
 #include <vtkCellData.h>
 #include <vtkCellDataToPointData.h>
+#include <vtkVisItCellDataToPointData.h>
 #include <vtkDataSetWriter.h>
 #include <vtkInformation.h>
 #include <vtkFloatArray.h>
@@ -403,10 +404,10 @@ avtDatasetFileWriter::WriteOBJFile(vtkDataSet *ds,
     // The OBJ file is going to expect the dataset as having node-centered
     // data.
     //
-    vtkCellDataToPointData *cd2pd = NULL;
+    vtkVisItCellDataToPointData *cd2pd = NULL;
     if (activeDS->GetCellData()->GetScalars() != NULL)
     {
-        cd2pd = vtkCellDataToPointData::New();
+        cd2pd = vtkVisItCellDataToPointData::New();
         cd2pd->SetInputData(activeDS);
         geom->SetInputConnection(cd2pd->GetOutputPort());
     }
