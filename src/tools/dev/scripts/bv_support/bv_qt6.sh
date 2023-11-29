@@ -1,7 +1,11 @@
 
 function bv_qt6_initialize
 {
-    export DO_QT6="no"
+    export DO_QT6="yes"
+    export FORCE_QT="no"
+    export USE_SYSTEM_QT="no"
+    add_extra_commandline_args "qt6" "system-qt" 0 "Use qt6 found on system"
+    add_extra_commandline_args "qt6" "alt-qt6-dir" 1 "Use qt6 found in alternative directory"
 }
 
 function bv_qt6_enable

@@ -4,9 +4,9 @@
         <required>
             <lib name="cmake"/> <!-- cmake is here -->
             <lib name="python"/>
-            <lib name="vtk"/> <!-- <lib name="vtk" reqdeps="cmake vtk" optdeps="qt mesagl"/> -->
             <lib name="qt6"/>
             <lib name="qwt"/>
+            <lib name="vtk"/> <!-- <lib name="vtk" reqdeps="cmake vtk" optdeps="qt mesagl"/> -->
             <lib name="zlib"/>
         </required>
 
