@@ -632,6 +632,9 @@ function initialize_build_visit()
     export DO_CONTEXT_CHECK="yes"
     export VISIT_INSTALL_NETWORK=""
     export DO_QT510="no"
+    # TODO later this will come online and qt6 will go away since it will be default
+    # export DO_QT514="no"
+    export DO_QT6="no"
     export DO_VTK9="no"
     DOWNLOAD_ONLY="no"
 
@@ -672,10 +675,10 @@ function initialize_build_visit()
             --qt510) DO_QT510="yes";;
         esac
         case $arg in
-            --vtk9) DO_VTK9="yes";;
+            --qt6) DO_QT6="yes"; DO_QT="no";;
         esac
         case $arg in
-            --qt6) DO_QT6="yes"; DO_QT="no";;
+            --vtk9) DO_VTK9="yes";;
         esac
     done
 
@@ -1278,10 +1281,13 @@ function run_build_visit()
             --version) next_arg="version";;
             --xdb) DO_XDB="yes";;
             # "--qt510" is actually handled elsewhere, but it is also here
-            # to prevent it triggering an "Urecognized option" error.
+            # to prevent it triggering an "Unrecognized option" error.
             --qt510) ;;
+            # "--qt6" is actually handled elsewhere, but it is also here
+            # to prevent it triggering an "Unrecognized option" error.
+            --qt6) ;;
             # "--vtk9" is actually handled elsewhere, but it is also here
-            # to prevent it triggering an "Urecognized option" error.
+            # to prevent it triggering an "Unrecognized option" error.
             --vtk9) ;;
             --skip-opengl-context-check) DO_CONTEXT_CHECK="no";;
             *)
