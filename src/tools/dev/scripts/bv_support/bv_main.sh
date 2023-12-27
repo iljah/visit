@@ -1286,6 +1286,9 @@ function run_build_visit()
             # "--qt510" is actually handled elsewhere, but it is also here
             # to prevent it triggering an "Unrecognized option" error.
             --qt510) ;;
+            # "--qt514" is actually handled elsewhere, but it is also here
+            # to prevent it triggering an "Unrecognized option" error.
+            --qt514) ;;
             # "--qt6" is actually handled elsewhere, but it is also here
             # to prevent it triggering an "Unrecognized option" error.
             --qt6) ;;
