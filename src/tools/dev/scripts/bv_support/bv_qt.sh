@@ -22,8 +22,8 @@ function bv_qt_enable
         DO_QT="yes"
         FORCE_QT="yes"
     else
-       DO_QT="no"
-       FORCE_QT="no"
+        DO_QT="no"
+        FORCE_QT="no"
     fi
 }
 
@@ -128,7 +128,7 @@ function bv_qt_depends_on
 
 function bv_qt_info
 {
-    bv_qt_enable
+    # bv_qt_enable
 
     if [[ "$DO_QT6" == "yes" ]] ; then
         export QT6_VERSION=${QT6_VERSION:-"6.4.2"}

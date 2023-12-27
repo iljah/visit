@@ -672,7 +672,10 @@ function initialize_build_visit()
     #
     for arg in "$@" ; do
         case $arg in
-            --qt510) DO_QT510="yes";;
+            --qt510) DO_QT510="yes"; DO_QT6="no";;
+        esac
+        case $arg in
+            --qt514) DO_QT6="no"; DO_QT="yes";;
         esac
         case $arg in
             --qt6) DO_QT6="yes"; DO_QT="no";;
