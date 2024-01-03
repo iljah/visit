@@ -91,7 +91,7 @@ function check_minimum_compiler_version()
         VERSION=$(get_version_digits g++)
         echo "g++ version $VERSION"
         gccv=7.3
-        if [[ "$DO_QT6" == "yes" ]] ; then
+        if [[ "$DO_QT" == "yes" ]] ; then
             gccv=8.1
         fi
         testvercomp $VERSION $gccv '<'
@@ -632,9 +632,7 @@ function initialize_build_visit()
     export DO_CONTEXT_CHECK="yes"
     export VISIT_INSTALL_NETWORK=""
     export DO_QT510="no"
-    # TODO later this will come online and qt6 will go away since it will be default
-    # export DO_QT514="no"
-    export DO_QT6="no"
+    export DO_QT514="no"
     export DO_VTK9="no"
     DOWNLOAD_ONLY="no"
 
@@ -672,13 +670,10 @@ function initialize_build_visit()
     #
     for arg in "$@" ; do
         case $arg in
-            --qt510) DO_QT510="yes"; DO_QT6="no";;
+            --qt510) DO_QT510="yes";;
         esac
         case $arg in
-            --qt514) DO_QT6="no"; DO_QT="yes";;
-        esac
-        case $arg in
-            --qt6) DO_QT6="yes"; DO_QT="no";;
+            --qt514) DO_QT514="yes";;
         esac
         case $arg in
             --vtk9) DO_VTK9="yes";;
@@ -1289,9 +1284,6 @@ function run_build_visit()
             # "--qt514" is actually handled elsewhere, but it is also here
             # to prevent it triggering an "Unrecognized option" error.
             --qt514) ;;
-            # "--qt6" is actually handled elsewhere, but it is also here
-            # to prevent it triggering an "Unrecognized option" error.
-            --qt6) ;;
             # "--vtk9" is actually handled elsewhere, but it is also here
             # to prevent it triggering an "Unrecognized option" error.
             --vtk9) ;;
